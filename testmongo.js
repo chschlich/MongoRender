@@ -1,9 +1,9 @@
 const { MongoClient } = require("mongodb");
 
 // The uri string must be the connection string for the database (obtained on Atlas).
-const uri = "mongodb+srv://cohenschlicher:no2WD6SLyT88goUp@chschlich0.ziczjbg.mongodb.net/?retryWrites=true&w=majority&appName=chschlich0y";
+const uri = `mongodb+srv://cohenschlicher:sfGQWQ6vRypPmP0n@chschlich0.ziczjbg.mongodb.net/?retryWrites=true&w=majority&appName=chschlich0`;
 
-// --- This is the standard stuff to get it to work on the browser
+// --- This is the standard stuff to get it to work on the browser 
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -28,18 +28,18 @@ app.get('/say/:name', function(req, res) {
 // Route to access database:
 app.get('/api/mongo/:item', function(req, res) {
 const client = new MongoClient(uri);
-const searchKey = "{ partID: '" + req.params.item + "' }";
+const searchKey = "{ coolid: '" + req.params.item + "' }";
 console.log("Looking for: " + searchKey);
 
 async function run() {
   try {
-    const database = client.db('ckmdb');
-    const parts = database.collection('cmps415');
+    const database = client.db('cohendb');
+    const parts = database.collection('cohenlection');
 
     // Hardwired Query for a part that has partID '12345'
     // const query = { partID: '12345' };
     // But we will use the parameter provided with the route
-    const query = { partID: req.params.item };
+    const query = { coolid: req.params.item };
 
     const part = await parts.findOne(query);
     console.log(part);
