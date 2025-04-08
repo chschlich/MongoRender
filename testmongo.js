@@ -1,9 +1,9 @@
 const { MongoClient } = require("mongodb");
 
 // The uri string must be the connection string for the database (obtained on Atlas).
-const uri = `mongodb+srv://cohenschlicher:sfGQWQ6vRypPmP0n@chschlich0.ziczjbg.mongodb.net/?retryWrites=true&w=majority&appName=chschlich0`;
+const uri = `mongodb+srv://cohenschlicher:RHgTO1kUjmvWbjFP@chschlich0.ziczjbg.mongodb.net/?retryWrites=true&w=majority&appName=chschlich0`;
 
-// --- This is the standard stuff to get it to work on the browser 
+// --- This is the standard stuff to get it to work on the browser
 const express = require('express');
 const app = express();
 const port = 3000;
